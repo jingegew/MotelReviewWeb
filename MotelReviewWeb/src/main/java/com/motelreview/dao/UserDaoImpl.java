@@ -63,9 +63,11 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public User getUserByEmail(String email) {
-		String sql = "select * from users where email = " + email;
+		String sql = "select * from users where email = '" + email + "'";
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 		List<User> userList = jdbcTemplate.query(sql, new UserRowMapper());
+		if(userList == null || userList.size() == 0)
+				return null;
 		return userList.get(0);
 	}
 

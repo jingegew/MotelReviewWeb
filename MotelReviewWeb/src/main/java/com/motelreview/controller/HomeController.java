@@ -73,6 +73,15 @@ public class HomeController {
 		User user = null;
 		if(email != null && email.trim().length() > 0){
 			user = accountService.findUserByEmail(email);
+			if(user == null){
+				user = new User();
+				user.setFirstName(request.getParameter("firstName"));
+				user.setLastName(request.getParameter("lastName"));
+				user.setEmail(request.getParameter("email"));
+				user.setPhone(request.getParameter("phone"));
+				user.setUserType("Reviewer");		
+				accountService.addUser(user);
+			}
 		} else{
 			//save reviewer
 			user = new User();

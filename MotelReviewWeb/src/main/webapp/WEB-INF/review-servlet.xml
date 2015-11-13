@@ -25,6 +25,7 @@
 	<!-- declare beans -->
 	<bean id="reviewDao" class="com.motelreview.dao.ReviewDaoImpl" />
 	<bean id="userDao" class="com.motelreview.dao.UserDaoImpl" />
+	<bean id="likertDao" class="com.motelreview.dao.LikertDaoImpl" />
 	<bean id="reviewService" class="com.motelreview.services.ReviewServiceImpl" />
 	<bean id="accountService" class="com.motelreview.services.AccountServiceImpl" />
 
