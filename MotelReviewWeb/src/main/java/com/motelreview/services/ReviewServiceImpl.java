@@ -4,16 +4,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.motelreview.dao.LikertDao;
 import com.motelreview.dao.ReviewDao;
+import com.motelreview.domain.Likert;
 import com.motelreview.domain.Review;
 
 public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired
 	ReviewDao reviewDao;
-
+	@Autowired
+	LikertDao likertDao;
+	
 	@Override
-	public void insertData(Review review) {
+	public void insertReview(Review review) {
 		//add bussiness logic 
 		//for example, if the review is negative, send notification, 
 		reviewDao.insertData(review);
@@ -26,7 +30,6 @@ public class ReviewServiceImpl implements ReviewService {
 
 	public void deleteData(String id) {
 		reviewDao.deleteData(id);
-
 	}
 
 	@Override
@@ -37,5 +40,15 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void updateData(Review review) {
 		reviewDao.updateData(review);
+	}
+
+	@Override
+	public void addLikert(Likert likert) {
+		likertDao.insertLikerts(likert);
+	}
+
+	@Override
+	public List<Likert> getLikertList(long reviewId) {
+		return likertDao.getLikertsListByReviewId(reviewId);
 	}
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.motelreview.domain.Likert;
 import com.motelreview.domain.Review;
 import com.motelreview.domain.User;
 import com.motelreview.model.ReviewModel;
@@ -67,15 +68,21 @@ public class HomeController {
 			System.out.println(name + " : " + request.getParameter(name) );
 		}
 		
-		//save reviewer
-		User user = new User();
-		user.setFirstName(request.getParameter("firstName"));
-		user.setLastName(request.getParameter("lastName"));
-		user.setEmail(request.getParameter("email"));
-		user.setPhone(request.getParameter("phone"));
-		user.setUserType("Reviewer");		
-		accountService.addUser(user);
-
+		String email = request.getParameter("email");
+		String phone = request.getParameter("phone");
+		User user = null;
+		if(email != null && email.trim().length() > 0){
+			user = accountService.findUserByEmail(email);
+		} else{
+			//save reviewer
+			user = new User();
+			user.setFirstName(request.getParameter("firstName"));
+			user.setLastName(request.getParameter("lastName"));
+			user.setEmail(request.getParameter("email"));
+			user.setPhone(request.getParameter("phone"));
+			user.setUserType("Reviewer");		
+			accountService.addUser(user);
+		}
 		//save review
 		Review review = new Review();
 		//review.setUserId(0);
@@ -83,9 +90,16 @@ public class HomeController {
 		review.setCustomerId(1);
 		review.setRoomNumber(request.getParameter("roomNumber"));
 		review.setReview(request.getParameter("review"));
-		reviewService.insertData(review);
-		//TODO save likerts
-		//review.setLikerts(reviewModel.getLikerts());
+		reviewService.insertReview(review);
+		//HACK hard code
+		String[] items = new String[]{"bed", "food", "parking", "ac", "wifi", "location"};
+		for(String item : items){
+			Likert likert = new Likert();
+			likert.setReviewId(review.getReviewId());
+			likert.setItem(item);
+			likert.setValue(request.getParameter(item));
+			reviewService.addLikert(likert);
+		}		
 		return "result";
 	}
 

@@ -8,11 +8,9 @@ public class User {
 	private String firstName;
 	private String LastName;
 	private String email;
-	private String roomNumber;
 	private long customerId;
 	private String phone;
 	private String userType;	
-	
 	public long getUserId() {
 		return userId;
 	}
@@ -59,14 +57,6 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getRoomNumber() {
-		return roomNumber;
-	}
-
-	public void setRoomNumber(String roomNumber) {
-		this.roomNumber = roomNumber;
 	}
 
 	public long getCustomerId() {

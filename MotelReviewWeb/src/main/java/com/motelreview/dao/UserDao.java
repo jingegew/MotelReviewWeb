@@ -13,5 +13,8 @@ public interface UserDao {
 	public void updateUser(User user);
 
 	public User getUser(String id);
+	
+	public User getUserByEmail(String email);
+
 
 }

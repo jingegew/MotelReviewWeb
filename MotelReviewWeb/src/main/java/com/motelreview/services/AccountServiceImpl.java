@@ -35,4 +35,9 @@ public class AccountServiceImpl implements AccountService {
 		userDao.insertUser(user);
 	}
 
+	@Override
+	public User findUserByEmail(String email) {
+		return userDao.getUserByEmail(email);
+	}
+
 }

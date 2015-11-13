@@ -8,4 +8,5 @@ public interface AccountService {
 	 public boolean resetPassword(String username, String oldPassword, String newPassword);  
 	 public boolean logout(String username);  
 	 public void addUser(User user);
+	 public User findUserByEmail(String email);
 }
