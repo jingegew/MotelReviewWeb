@@ -6,6 +6,7 @@ public class Review {
 	private long reviewId;
 	private long userId;
 	private long customerId;
+	private String roomNumber;
 	private String review;
 	private List<Likert> likerts;
 
@@ -49,4 +50,12 @@ public class Review {
 		this.likerts = likerts;
 	}
 
+	public String getRoomNumber() {
+		return roomNumber;
+	}
+
+	public void setRoomNumber(String roomNumber) {
+		this.roomNumber = roomNumber;
+	}
+	
 }

@@ -2,6 +2,7 @@ package com.motelreview.domain;
 
 public class User {
 
+	private long userId;
 	private String username;
 	private String password;
 	private String firstName;
@@ -10,7 +11,15 @@ public class User {
 	private String roomNumber;
 	private long customerId;
 	private String phone;
-	private String userType;
+	private String userType;	
+	
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 
 	public String getUsername() {
 		return username;

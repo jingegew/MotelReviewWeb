@@ -5,6 +5,7 @@ import java.util.List;
 import com.motelreview.domain.Review;
 
 public interface ReviewDao {
+	
 	public void insertData(Review review);
 
 	public List<Review> getReviewList();

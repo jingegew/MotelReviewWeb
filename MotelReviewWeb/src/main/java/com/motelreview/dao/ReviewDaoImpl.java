@@ -6,6 +6,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 
 import com.motelreview.domain.Review;
 import com.motelreview.jdbc.ReviewRowMapper;
@@ -16,15 +17,19 @@ public class ReviewDaoImpl implements ReviewDao {
 	DataSource dataSource;
 
 	public void insertData(Review review) {
-		//TODO, user id£¬ likerts
+		// TODO, user id£¬ likerts
 		String sql = "INSERT INTO reviews "
-				+ "(customer_id,review) VALUES (?, ?)";
+				+ "(user_id, customer_id, review, room_number) VALUES (?, ?, ?, ?)";
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
 		jdbcTemplate.update(sql,
-				new Object[] { review.getCustomerId(), review.getReview() });
+				new Object[] { review.getUserId(), review.getCustomerId(), review.getReview(), review.getRoomNumber() });
 
+		SqlRowSet rs = jdbcTemplate.queryForRowSet("SELECT id FROM reviews ORDER BY id DESC LIMIT 1;");
+		if(rs.first()){
+			review.setReviewId(rs.getLong(1));	
+		}
 	}
 
 	public List<Review> getReviewList() {

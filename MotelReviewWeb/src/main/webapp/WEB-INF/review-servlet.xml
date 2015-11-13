@@ -13,16 +13,18 @@
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
-	
+
 	<mvc:resources mapping="/resources/**" location="/resources/" />
 	<mvc:annotation-driven />
-	
+
 	<!-- declare beans -->
 	<bean id="reviewDao" class="com.motelreview.dao.ReviewDaoImpl" />
+	<bean id="userDao" class="com.motelreview.dao.UserDaoImpl" />
 	<bean id="reviewService" class="com.motelreview.services.ReviewServiceImpl" />
 	<bean id="accountService" class="com.motelreview.services.AccountServiceImpl" />
 
@@ -34,6 +36,5 @@
 		<property name="username" value="root" />
 		<property name="password" value="123456" />
 	</bean>
-	
-	
+
 </beans>

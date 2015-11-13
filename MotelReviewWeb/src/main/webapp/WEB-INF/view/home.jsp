@@ -84,8 +84,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading">Your Info</h2>
-						<h3 class="section-subheading text-muted">Leave us your info
-							before leaving comments.</h3>
+						<h3 class="section-subheading text-muted">Leave us your info before leaving comments.</h3>
 					</div>
 				</div>
 				<div class="row">
@@ -94,38 +93,38 @@
 							<div class="col-md-3"></div>
 							<div class="col-md-6">
 								<div class="form-group">
-									<input type="text" id="firstName" class="form-control" placeholder="First Name *" required data-validation-required-message="Please enter your first name." />
+									<input type="text" name="firstName" class="form-control" placeholder="First Name *" required data-validation-required-message="Please enter your first name." />
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="Last Name *" id="name" required
+										placeholder="Last Name *" name="lastName" required
 										data-validation-required-message="Please enter your last name.">
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="Room Number *" id="email" required
+										placeholder="Room Number *" name="roomNumber" required
 										data-validation-required-message="Please enter your room number.">
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="tel" class="form-control" placeholder="Your Phone"
-										id="phone"
+										name="phone"
 										data-validation-required-message="Please enter your phone number.">
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="email" class="form-control"
-										placeholder="Your Email" id="email"
-										data-validation-required-message="Please enter your room number.">
+										placeholder="Your Email" name="email"
+										data-validation-required-message="Please enter your email.">
 									<p class="help-block text-danger"></p>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-lg-12 text-center">
 								<div id="success"></div>
-								<button type="submit" class="btn btn-xl">Continue</button>
+								<button class="btn btn-xl">Continue</button>
 							</div>
 						</div>
 					</div>
@@ -182,9 +181,8 @@
 							<img src="img/bed.jpg" class="img-responsive img-circle" alt="">
 							<h4>Bed</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="bed" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="bed" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -194,9 +192,8 @@
 								alt="">
 							<h4>Food</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="food" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="food" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -205,9 +202,8 @@
 							<img src="img/AC.jpg" class="img-responsive img-circle" alt="">
 							<h4>AC</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="ac" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="ac" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -219,9 +215,8 @@
 								alt="">
 							<h4>Free Parking</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="parking" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="parking" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -230,9 +225,8 @@
 							<img src="img/WiFi.png" class="img-responsive img-circle" alt="">
 							<h4>WiFi</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="wifi" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="wifi" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -242,9 +236,8 @@
 								alt="">
 							<h4>Location</h4>
 							<ul class="list-inline social-buttons">
-								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
-								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
-								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+								<li><input type="radio" name="location" value="Bad" checked>Bad</li>
+								<li><input type="radio" name="location" value="Good" checked>Good</li>
 							</ul>
 						</div>
 					</div>
@@ -276,7 +269,7 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<textarea class="form-control" placeholder="Your Comments *"
-										id="message" required
+										name="review" required
 										data-validation-required-message="Please enter a message."></textarea>
 									<p class="help-block text-danger"></p>
 								</div>

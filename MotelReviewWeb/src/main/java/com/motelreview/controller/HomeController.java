@@ -1,22 +1,22 @@
 package com.motelreview.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
-import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.motelreview.domain.Review;
+import com.motelreview.domain.User;
 import com.motelreview.model.ReviewModel;
+import com.motelreview.repositories.CustomerRepository;
+import com.motelreview.repositories.ReviewRepository;
+import com.motelreview.services.AccountService;
 import com.motelreview.services.ReviewService;
 
 @Controller
@@ -24,7 +24,9 @@ public class HomeController {
 
 	@Autowired
 	ReviewService reviewService;
-
+	@Autowired
+	AccountService accountService;
+	
 	private static final Log logger = LogFactory.getLog(HomeController.class);
 	/*
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
@@ -55,19 +57,35 @@ public class HomeController {
 */
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView review() {
-		return new ModelAndView("home", "review", new ReviewModel());
+		return new ModelAndView("home", "command", new ReviewModel());
 	}
 
 	@RequestMapping(value = "/addReview", method = RequestMethod.POST)
-	public String addReview(@ModelAttribute("Review") ReviewModel reviewModel) {
-		// TODO Save Data to DB
+	public String addReview(HttpServletRequest request) {
+
+		for(String name : request.getParameterMap().keySet()){
+			System.out.println(name + " : " + request.getParameter(name) );
+		}
+		
+		//save reviewer
+		User user = new User();
+		user.setFirstName(request.getParameter("firstName"));
+		user.setLastName(request.getParameter("lastName"));
+		user.setEmail(request.getParameter("email"));
+		user.setPhone(request.getParameter("phone"));
+		user.setUserType("Reviewer");		
+		accountService.addUser(user);
+
+		//save review
 		Review review = new Review();
 		//review.setUserId(0);
+		review.setUserId(user.getUserId());
 		review.setCustomerId(1);
-		review.setReview(reviewModel.getReview());
-		//TODO Likerts
-		//review.setLikerts(reviewModel.getLikerts());
+		review.setRoomNumber(request.getParameter("roomNumber"));
+		review.setReview(request.getParameter("review"));
 		reviewService.insertData(review);
+		//TODO save likerts
+		//review.setLikerts(reviewModel.getLikerts());
 		return "result";
 	}
 

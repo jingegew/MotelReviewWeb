@@ -20,9 +20,12 @@ CREATE TABLE `users` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `first_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) DEFAULT NULL,  
   `customer_id` bigint(20) unsigned DEFAULT NULL,
   `user_type` varchar(45) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
+  `phone` varchar(50) DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -33,8 +36,9 @@ DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE `reviews` (
   `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `customer_id` bigint(20) unsigned NOT NULL,
   `user_id` bigint(20) unsigned NULL,  
+  `customer_id` bigint(20) unsigned NOT NULL,
+  `room_number` varchar(45) NULL,    
   `review` text,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` datetime DEFAULT NULL,
