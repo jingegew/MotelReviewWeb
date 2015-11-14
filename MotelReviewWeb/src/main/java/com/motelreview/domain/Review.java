@@ -1,14 +1,20 @@
 package com.motelreview.domain;
 
+import java.util.Date;
 import java.util.List;
 
 public class Review {
+	
 	private long reviewId;
 	private long userId;
 	private long customerId;
 	private String roomNumber;
 	private String review;
 	private List<Likert> likerts;
+	//0 means don't like, 1 means like, -1 means no answer
+	private int likeStay;
+	
+	private Date created;
 
 	public long getReviewId() {
 		return reviewId;
@@ -57,5 +63,20 @@ public class Review {
 	public void setRoomNumber(String roomNumber) {
 		this.roomNumber = roomNumber;
 	}
-	
+
+	public int getLikeStay() {
+		return likeStay;
+	}
+
+	public void setLikeStay(int likeStay) {
+		this.likeStay = likeStay;
+	}
+
+	public Date getCreated() {
+		return created;
+	}
+
+	public void setCreated(Date created) {
+		this.created = created;
+	}
 }

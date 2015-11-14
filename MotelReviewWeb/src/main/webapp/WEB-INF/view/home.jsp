@@ -49,20 +49,6 @@
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top">Super 8</a>
 			</div>
-
-			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse"
-				id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav navbar-right">
-					<li class="hidden"><a href="#page-top"></a></li>
-					<li><a class="page-scroll" href="#services">Your Info</a></li>
-					<li><a class="page-scroll" href="#contact">Services</a></li>
-					<li><a class="page-scroll" href="#portfolio">Portfolio</a></li>
-					<li><a class="page-scroll" href="#about">About</a></li>
-					<li><a class="page-scroll" href="#team">Team</a></li>
-				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
@@ -71,7 +57,7 @@
 	<header>
 		<div class="container">
 			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To Super8!</div>
+				<div class="intro-lead-in">Welcome To Super 8!</div>
 				<div class="intro-heading">It's Nice To Have You</div>
 				<a href="#services" class="page-scroll btn btn-xl">Reviews </a>
 			</div>
@@ -138,8 +124,7 @@
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading">Hello there!</h2>
-						<h3 class="section-subheading text-muted">Did you like to
-							stay?</h3>
+						<h3 class="section-subheading text-muted">Did you like to stay?</h3>
 					</div>
 				</div>
 				<div class="row">
@@ -150,13 +135,14 @@
 									<img src="resources/img/yes.jpg"
 										class="img-responsive img-circle" alt="">
 									<h4>Yes</h4>
-								</div>
+								<input type="radio" name="stay" value="1">
 							</div>
 							<div class="col-sm-6">
 								<div class="team-member">
 									<img src="resources/img/no.jpg"
 										class="img-responsive img-circle" alt="">
 									<h4>No</h4>
+								<input type="radio" name="stay" value="0">									
 								</div>
 							</div>
 						</div>
@@ -172,7 +158,7 @@
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading">Our Services</h2>
 						<h3 class="section-subheading text-muted">Our amazing
-							servicesr.</h3>
+							services.</h3>
 					</div>
 				</div>
 				<div class="row">
@@ -181,8 +167,8 @@
 							<img src="img/bed.jpg" class="img-responsive img-circle" alt="">
 							<h4>Bed</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="bed" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="bed" value="Good" checked>Good</li>
+								<li><input type="radio" name="bed" value="Bad">Bad</li>
+								<li><input type="radio" name="bed" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>
@@ -192,8 +178,8 @@
 								alt="">
 							<h4>Food</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="food" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="food" value="Good" checked>Good</li>
+								<li><input type="radio" name="food" value="Bad">Bad</li>
+								<li><input type="radio" name="food" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>
@@ -202,8 +188,8 @@
 							<img src="img/AC.jpg" class="img-responsive img-circle" alt="">
 							<h4>AC</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="ac" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="ac" value="Good" checked>Good</li>
+								<li><input type="radio" name="ac" value="Bad">Bad</li>
+								<li><input type="radio" name="ac" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>
@@ -215,8 +201,8 @@
 								alt="">
 							<h4>Free Parking</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="parking" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="parking" value="Good" checked>Good</li>
+								<li><input type="radio" name="parking" value="Bad">Bad</li>
+								<li><input type="radio" name="parking" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>
@@ -225,8 +211,8 @@
 							<img src="img/WiFi.png" class="img-responsive img-circle" alt="">
 							<h4>WiFi</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="wifi" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="wifi" value="Good" checked>Good</li>
+								<li><input type="radio" name="wifi" value="Bad">Bad</li>
+								<li><input type="radio" name="wifi" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>
@@ -236,8 +222,8 @@
 								alt="">
 							<h4>Location</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="location" value="Bad" checked>Bad</li>
-								<li><input type="radio" name="location" value="Good" checked>Good</li>
+								<li><input type="radio" name="location" value="Bad">Bad</li>
+								<li><input type="radio" name="location" value="Good">Good</li>
 							</ul>
 						</div>
 					</div>

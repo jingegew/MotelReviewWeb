@@ -19,12 +19,12 @@ public class ReviewDaoImpl implements ReviewDao {
 	public void insertData(Review review) {
 		// TODO, user id£¬ likerts
 		String sql = "INSERT INTO reviews "
-				+ "(user_id, customer_id, review, room_number) VALUES (?, ?, ?, ?)";
+				+ "(user_id, customer_id, review, like_stay, room_number) VALUES (?, ?, ?, ?, ?)";
 
 		JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
 
 		jdbcTemplate.update(sql,
-				new Object[] { review.getUserId(), review.getCustomerId(), review.getReview(), review.getRoomNumber() });
+				new Object[] { review.getUserId(), review.getCustomerId(), review.getReview(), review.getLikeStay(), review.getRoomNumber() });
 
 		SqlRowSet rs = jdbcTemplate.queryForRowSet("SELECT id FROM reviews ORDER BY id DESC LIMIT 1;");
 		if(rs.first()){

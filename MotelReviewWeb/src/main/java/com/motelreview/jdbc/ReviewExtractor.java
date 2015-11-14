@@ -8,12 +8,16 @@ import com.motelreview.domain.Review;
 
 public class ReviewExtractor implements ResultSetExtractor<Review> {
 
-	public Review extractData(ResultSet resultSet) throws SQLException,
+	public Review extractData(ResultSet rs) throws SQLException,
 			DataAccessException {
 		Review review = new Review();
-		review.setReviewId(resultSet.getLong(1));
-		review.setUserId(resultSet.getLong(2));
-		review.setReview(resultSet.getString(3));
+		review.setReviewId(rs.getLong("id"));
+		review.setUserId(rs.getLong("user_id"));
+		review.setReview(rs.getString("review"));
+		review.setLikeStay(rs.getInt("like_stay"));
+		review.setRoomNumber(rs.getString("room_number"));
+		review.setCustomerId(rs.getLong("customer_id"));
+		review.setCreated(rs.getDate("created"));
 		//TODO set likerts
 		return review;
 	}

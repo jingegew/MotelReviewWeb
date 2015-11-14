@@ -1,5 +1,7 @@
 package com.motelreview.controller;
 
+import java.util.UUID;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -64,26 +66,28 @@ public class HomeController {
 	@RequestMapping(value = "/addReview", method = RequestMethod.POST)
 	public String addReview(HttpServletRequest request) {
 
+		/*
+		 * TODO use UUID later
+        UUID uuid = UUID.randomUUID();
+        String randomUUIDString = uuid.toString();
+		*/
 		for(String name : request.getParameterMap().keySet()){
 			System.out.println(name + " : " + request.getParameter(name) );
 		}
 		
 		String email = request.getParameter("email");
-		String phone = request.getParameter("phone");
 		User user = null;
+		boolean addNewUser = false;
 		if(email != null && email.trim().length() > 0){
 			user = accountService.findUserByEmail(email);
 			if(user == null){
-				user = new User();
-				user.setFirstName(request.getParameter("firstName"));
-				user.setLastName(request.getParameter("lastName"));
-				user.setEmail(request.getParameter("email"));
-				user.setPhone(request.getParameter("phone"));
-				user.setUserType("Reviewer");		
-				accountService.addUser(user);
+				addNewUser = true;
 			}
 		} else{
 			//save reviewer
+			addNewUser = true;
+		}
+		if(addNewUser){
 			user = new User();
 			user.setFirstName(request.getParameter("firstName"));
 			user.setLastName(request.getParameter("lastName"));
@@ -94,20 +98,24 @@ public class HomeController {
 		}
 		//save review
 		Review review = new Review();
-		//review.setUserId(0);
 		review.setUserId(user.getUserId());
 		review.setCustomerId(1);
 		review.setRoomNumber(request.getParameter("roomNumber"));
 		review.setReview(request.getParameter("review"));
+		String stay = request.getParameter("stay");
+		review.setLikeStay(stay == null ? -1 : Integer.parseInt(stay));
 		reviewService.insertReview(review);
 		//HACK hard code
 		String[] items = new String[]{"bed", "food", "parking", "ac", "wifi", "location"};
 		for(String item : items){
-			Likert likert = new Likert();
-			likert.setReviewId(review.getReviewId());
-			likert.setItem(item);
-			likert.setValue(request.getParameter(item));
-			reviewService.addLikert(likert);
+			String likert_level = request.getParameter(item);
+			if(likert_level != null){
+				Likert likert = new Likert();
+				likert.setReviewId(review.getReviewId());
+				likert.setItem(item);
+				likert.setValue(likert_level);
+				reviewService.addLikert(likert);
+			}
 		}		
 		return "result";
 	}
