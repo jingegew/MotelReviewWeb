@@ -5,8 +5,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+<!-- Add the below
 
-<title>Super 8 - Reviews</title>
+1. Yes/No : Entertainment
+2. Entertainment - channels 
+3. Cleaning
+4. 
+
+  -->
+
+
+<title>Fodly Bites</title>
 
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
@@ -30,10 +40,40 @@
     <![endif]-->
 
 <link href="resources/css/bootstrap.css" rel="stylesheet">
+<script>
+$(document).ready(function(){
+    $("#RecommendYes").click(function(){
+	
+        $("#RecommendYesOptions").show();
+		$("#submitButton").show();
+		
+    });
+});
+$(document).ready(function(){
+    $("#RecommendYes").click(function(){
+	
+        $("#RecommendYesOptions").show();
+		$("#submitButton").show();
+		
+    });
+});
+    </script>
+	
+    <script>
+$(document).ready(function(){
+    $("#submitName").click(function(){
+    	 $("#services").hide();
+        $("#RecommendDiv").show();
+		
+    });
+});
+</script>
+
+
 
 
 </head>
-
+	
 <body id="page-top" class="index">
 
 	<!-- Navigation -->
@@ -49,6 +89,20 @@
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top">Super 8</a>
 			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#services">Welcome</a></li>
+					<li><a class="page-scroll" href="#contact">Services</a></li>
+					<li><a class="page-scroll" href="#portfolio">Portfolio</a></li>
+					<li><a class="page-scroll" href="#about">About</a></li>
+					<li><a class="page-scroll" href="#team">Team</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
@@ -57,60 +111,69 @@
 	<header>
 		<div class="container">
 			<div class="intro-text">
-				<div class="intro-lead-in">Welcome To Super 8!</div>
+				<div class="intro-lead-in">Welcome To Super8!</div>
 				<div class="intro-heading">It's Nice To Have You</div>
-				<a href="#services" class="page-scroll btn btn-xl">Reviews </a>
+				
 			</div>
 		</div>
+		
+		
 	</header>
 	<form:form method="POST" action="/MotelReviewWeb/addReview">
 		<!-- Contact Section -->
-		<section id="services">
-			<div class="container">
+		<section id="services" style="background-image: url(resources/img/Super8ImageBackground.jpg); height:100%; background-repeat: no-repeat;background-position: center;
+ background-size:cover;height:100vh;">
+			<div class="container" id="servicesContainer" ng-app="" >
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Your Info</h2>
-						<h3 class="section-subheading text-muted">Leave us your info before leaving comments.</h3>
+						<h2 class="section-heading" style="margin-top:1cm">Hello {{name}}</h2>
+						<h3 class="section-subheading text-muted" style="margin-bottom:1cm">What's your name?</h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
 							<div class="col-md-3"></div>
-							<div class="col-md-6">
+							<div class="col-md-6" align=center>
+							
+							
+								<div class="form-group" >
+									<input   type="text" id="firstName"  ng-model="name"  align=center class="form-control"
+										placeholder="First Name" required
+										data-validation-required-message="Please enter your first name" />
+									<p class="help-block text-danger"></p>
+								</div>
+								
 								<div class="form-group">
-									<input type="text" name="firstName" class="form-control" placeholder="First Name *" required data-validation-required-message="Please enter your first name." />
+									<input type="text" class="form-control"
+										placeholder="Last Name" id="name" required
+										data-validation-required-message="Please enter your last name">
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="Last Name *" name="lastName" required
-										data-validation-required-message="Please enter your last name.">
+										placeholder="Room Number" id="email" required
+										data-validation-required-message="Please enter the room number you stayed in..">
 									<p class="help-block text-danger"></p>
 								</div>
+								
 								<div class="form-group">
-									<input type="text" class="form-control"
-										placeholder="Room Number *" name="roomNumber" required
-										data-validation-required-message="Please enter your room number.">
-									<p class="help-block text-danger"></p>
-								</div>
-								<div class="form-group">
-									<input type="tel" class="form-control" placeholder="Your Phone"
-										name="phone"
+									<input type="tel" class="form-control" placeholder="Phone"
+										id="phone"
 										data-validation-required-message="Please enter your phone number.">
 									<p class="help-block text-danger"></p>
 								</div>
 								<div class="form-group">
 									<input type="email" class="form-control"
-										placeholder="Your Email" name="email"
-										data-validation-required-message="Please enter your email.">
+										placeholder="Email" id="email"
+										data-validation-required-message="Please enter your room number.">
 									<p class="help-block text-danger"></p>
 								</div>
 							</div>
 							<div class="clearfix"></div>
 							<div class="col-lg-12 text-center">
 								<div id="success"></div>
-								<button class="btn btn-xl">Continue</button>
+								<button type="submit"  id="submitName" class="btn btn-danger" style="margin-bottom:2cm; margin-top:1cm">Continue</button>
 							</div>
 						</div>
 					</div>
@@ -119,30 +182,31 @@
 		</section>
 
 		<!-- Contact Section -->
-		<section id="about">
-			<div class="container">
+		<section id="about" style="margin-top:3cm" style="height:100vh">
+			<div class="ViewPortcontainer" id="RecommendDiv" ng-app="" >
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Hello there!</h2>
-						<h3 class="section-subheading text-muted">Did you like to stay?</h3>
+						<h2 class="section-heading" style="margin-top:1cm">Thank you...</h2>
+						<h3 class="section-subheading text-muted" style="margin-bottom:1cm">Did you like the
+							stay?</h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
 						<div class="row">
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img src="resources/img/yes.jpg"
-										class="img-responsive img-circle" alt="">
-									<h4>Yes</h4>
-								<input type="radio" name="stay" value="1">
+							<div class="col-md-6" >
+								<div class="team-member" align=center>
+								<input type="image" src="resources/img/yes.jpg" name="RecommendYes" class="btTxt submit" id="RecommendNo" height=160px width=160px"/>
+									
+								</div>
 							</div>
-							<div class="col-sm-6">
-								<div class="team-member">
-									<img src="resources/img/no.jpg"
-										class="img-responsive img-circle" alt="">
-									<h4>No</h4>
-								<input type="radio" name="stay" value="0">									
+							<div class="col-md-6">
+								<div class="team-member"   align=center style="margin-top:0.4cm">
+								
+								<input type="image" src="resources/img/NoRoundPic.png" name="RecommendNo" class="btTxt submit" id="RecommendNo" height=160px width=160px"/>
+								
+									
+										
 								</div>
 							</div>
 						</div>
@@ -152,44 +216,54 @@
 		</section>
 
 		<!-- Team Section -->
-		<section id="team" class="bg-light-gray">
-			<div class="container">
+		<section id="team" class="bg-light-gray" id="RecommendYesOptions" >
+			<div class="container" align=center>	
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Our Services</h2>
-						<h3 class="section-subheading text-muted">Our amazing
-							services.</h3>
+						<h2 class="section-heading" style="margin-top:2cm;margin-bottom:1cm">Fantastic!</h2>
+						<h3 class="section-subheading text-muted" style="margin-bottom:2cm">What services did you like?</h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img src="img/bed.jpg" class="img-responsive img-circle" alt="">
-							<h4>Bed</h4>
+						<h4><input type="checkbox"   id="RecoYesRoomConditionCheck" name="RecoYesRoomConditionCheck" value="0" align=center />&nbsp;</h4>
+                    
+							<label for="RecoYesRoomConditionCheck" ><img src="resources/img/bed.png" class="img-responsive img-circle"  style="height:160px;width:160px" alt=""></label>
+							<h4 >Room Condition\Facilities</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="bed" value="Bad">Bad</li>
-								<li><input type="radio" name="bed" value="Good">Good</li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img src="img/breakfast.jpg" class="img-responsive img-circle"
-								alt="">
-							<h4>Food</h4>
+						<h4><input type="checkbox"   id="RecoYesBreakFastCheck" name="RecoYesBreakFastCheck" value="0" align=center />&nbsp;</h4>
+                    
+							
+					<label for="RecoYesBreakFastCheck" >	<img src="resources/img/breakfast.png" class="img-responsive" style="height:160px;width:160px"  alt=""></label>
+							
+							<h4>BreakFast</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="food" value="Bad">Bad</li>
-								<li><input type="radio" name="food" value="Good">Good</li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img src="img/AC.jpg" class="img-responsive img-circle" alt="">
+						<h4><input type="checkbox"   id="RecoYesACcheck" name="RecoYesACcheck" value="0" align=center />&nbsp;</h4>
+                    
+						
+						<label for="RecoYesACcheck" >	<img src="resources/img/AirConditioning.png" class="img-responsive" style="height:160px;width:160px" alt=""></label>
 							<h4>AC</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="ac" value="Bad">Bad</li>
-								<li><input type="radio" name="ac" value="Good">Good</li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -197,65 +271,168 @@
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img src="img/FreeParking.png" class="img-responsive img-circle"
-								alt="">
-							<h4>Free Parking</h4>
+						<h4><input type="checkbox"   id="RecoYesParkingCheck" name="RecoYesParkingCheck" value="0" align=center />&nbsp;</h4>
+                    
+							<label for="RecoYesParkingCheck" ><img src="resources/img/FreeParking.png" class="img-responsive" style="height:160px;width:160px"
+								alt=""></label>
+							<h4>Secure Parking</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="parking" value="Bad">Bad</li>
-								<li><input type="radio" name="parking" value="Good">Good</li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member" >
+						<h4><input type="checkbox"   id="RecoYesWifiCheck" name="RecoYesWifiCheck" value="0" align=center />&nbsp;</h4>
+                    
+							<label for="RecoYesWifiCheck" ><img src="resources/img/WiFi.png" class="img-responsive" style="height:160px;width:160px" alt="">
+							</label><h4>WiFi</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-							<img src="img/WiFi.png" class="img-responsive img-circle" alt="">
-							<h4>WiFi</h4>
-							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="wifi" value="Bad">Bad</li>
-								<li><input type="radio" name="wifi" value="Good">Good</li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-sm-4">
-						<div class="team-member">
-							<img src="img/location.jpg" class="img-responsive img-circle"
-								alt="">
+						<h4><input type="checkbox"   id="RecoYesLocationCheck" name="RecoYesLocationCheck" value="0" align=center />&nbsp;</h4>
+                    
+						<label for="RecoYesLocationCheck" >	<img src="resources/img/locationround.png" class="img-responsive" style="height:160px;width:160px"
+								alt=""></label>
 							<h4>Location</h4>
 							<ul class="list-inline social-buttons">
-								<li><input type="radio" name="location" value="Bad">Bad</li>
-								<li><input type="radio" name="location" value="Good">Good</li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-8 col-lg-offset-2 text-center">
-						<p class="large text-muted">We dedeciate to provide excellent
-							services with affordable prices, your review will help us to
-							improve.</p>
+						<p class="large text-muted"></p>
 					</div>
 				</div>
+			</div>
+		</section>
+		
+		<section id="team-No-Recommendation" class="bg-light-gray" id="RecommendNoOptions" >
+			<div class="container" align=center>
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading" style="margin-top:2cm;">Sorry to hear that.. </h2>
+						<h3 class="section-subheading text-muted" style="margin-top:1cm;margin-bottom:2cm">Please let us know the services that bothered you and can be improved. Your feedback is extremely valuable to us.</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoBedCheck" name="RecoNoBedCheck" value="0" align=center />&nbsp;</h4>
+                    
+						<label for=	"RecoNoBedCheck">	<img src="resources/img/bed.png" style="height:160px;width:160px" class="img-responsive" alt=""></label>
+						<h4>Room Facilities</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoBreakFastCheck" name="RecoNoBreakFastCheck" value="0" align=center />&nbsp;</h4>
+                    
+						<label for=	"RecoNoBreakFastCheck">		<img src="resources/img/breakfast.png" style="height:160px;width:160px" class="img-responsive"
+								alt=""> </label>
+							<h4>BreakFast</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoACCheck" name="RecoNoACCheck" value="0" align=center />&nbsp;</h4>
+                    
+								<label for=	"RecoNoACCheck">	<img src="resources/img/AirConditioning.png" style="height:160px;width:160px" class="img-responsive" alt=""></label>
+							<h4>AC</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoParkingCheck" name="RecoNoParkingCheck" value="0" align=center />&nbsp;</h4>
+                    
+								<label for=	"RecoNoParkingCheck">	<img src="resources/img/FreeParking.png" style="height:160px;width:160px"  class="img-responsive"
+								alt=""></label>
+							<h4>Parking</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoWiFiCheck" name="RecoNoWiFiCheck" value="0" align=center />&nbsp;</h4>
+                    
+							<label for=	"RecoNoWiFiCheck"><img src="resources/img/WiFi.png" style="height:160px;width:160px" class="img-responsive" alt=""></label>
+							<h4>WiFi</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-4">
+						<div class="team-member">
+						<h4><input type="checkbox"   id="RecoNoLocationCheck" name="RecoNoLocationCheck" value="0" align=center />&nbsp;</h4>
+                    
+							<label for=	"RecoNoLocationCheck"><img src="resources/img/locationround.png" style="height:160px;width:160px" class="img-responsive"
+								alt=""></label>
+							<h4>Location</h4>
+							<ul class="list-inline social-buttons">
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</section>
 
 		<!-- Contact Section -->
 		<section id="about">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-center">
-						<h2 class="section-heading">Your Comments</h2>
-						<h3 class="section-subheading text-muted">We appreciate your
-							any comments.</h3>
+			<div class="container" style="margin-top:1.5cm">
+				<div class="row-fluid">
+					<div class="col-lg-12" >
+						<h3 class="section-heading" >Other Comments</h3>
+						
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-lg-12">
-						<div class="row">
-							<div class="col-md-3"></div>
+						<div class="row"  >
+							
 							<div class="col-md-6">
 								<div class="form-group">
-									<textarea class="form-control" placeholder="Your Comments *"
-										name="review" required
+									<textarea class="form-control" placeholder="reivew here"
+										id="message" style=height:100px;width:70%""
 										data-validation-required-message="Please enter a message."></textarea>
 									<p class="help-block text-danger"></p>
 								</div>
@@ -266,22 +443,23 @@
 			</div>
 		</section>
 		<section id="submit">
-			<div class="container">
+			<div class="container" >
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<div id="success"></div>
-						<button type="submit" class="btn btn-xl">Submit Your Reviews</button>
+						<button type="submit" class="btn btn-info btn-lg" style="margin-top:1cm;margin-bottom:2cm">Submit</button>
 					</div>
 				</div>
 			</div>
 		</section>
 	</form:form>
 	<!-- Clients Aside -->
+	<!--  Not implemented now. 
 	<aside class="clients">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-3 col-sm-6">
-					<a href="#"> <img src="img/logos/envato.jpg"
+					<a href="#"> <img src="resources/img/logos/"
 						class="img-responsive img-centered" alt="">
 					</a>
 				</div>
@@ -304,8 +482,9 @@
 		</div>
 	</aside>
 
-	<footer>
-		<div class="container">
+	-->
+	<footer align=center>
+		<div class="container" >
 			<div class="row">
 				<div class="col-md-4">
 					<span class="copyright">Copyright &copy; Motel Reviews 2015</span>
@@ -330,5 +509,11 @@
 	<!-- Plugin JavaScript -->
 	<script
 		src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+		
+		<script>
+		var viewportHeight = "height:" + document.documentElement.clientHeight; 
+
+		document.getElementById('RecommendDiv').setAttribute('style', viewportHeight);
+		</script>
 </body>
 </html>
