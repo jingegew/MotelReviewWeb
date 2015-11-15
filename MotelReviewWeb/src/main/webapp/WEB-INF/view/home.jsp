@@ -228,7 +228,7 @@ $(document).ready(function(){
 					<div class="col-sm-4">
 						<div class="team-member">
 						<h4><input type="checkbox"   id="RecoYesRoomConditionCheck" name="RecoYesRoomConditionCheck" value="0" align=center />&nbsp;</h4>
-                    
+                    <RadioLabel> <input name="test" type="radio"> Good </RadioLabel>
 							<label for="RecoYesRoomConditionCheck" ><img src="resources/img/bed.png" class="img-responsive img-circle"  style="height:160px;width:160px" alt=""></label>
 							<h4 >Room Condition\Facilities</h4>
 							<ul class="list-inline social-buttons">
