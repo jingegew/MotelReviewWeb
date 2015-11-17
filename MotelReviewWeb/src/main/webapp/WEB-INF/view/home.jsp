@@ -119,15 +119,15 @@ $(document).ready(function(){
 		
 		
 	</header>
-	<form:form method="POST" action="/MotelReviewWeb/addReview">
+	<form:form method="POST" action="/MotelReviewWeb/addReview" autocomplete="off">
 		<!-- Contact Section -->
 		<section id="services" style="background-image: url(resources/img/Super8ImageBackground.jpg); height:100%; background-repeat: no-repeat;background-position: center;
  background-size:cover;height:100vh;">
 			<div class="container" id="servicesContainer" ng-app="" >
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading" style="margin-top:1cm">Hello {{name}}</h2>
-						<h3 class="section-subheading text-muted" style="margin-bottom:1cm">What's your name?</h3>
+						<h2 class="section-heading" style="margin-top:1cm">Hi {{name}}</h2>
+						
 					</div>
 				</div>
 				<div class="row">
@@ -220,17 +220,22 @@ $(document).ready(function(){
 			<div class="container" align=center>	
 				<div class="row">
 					<div class="col-lg-12 text-center">
-						<h2 class="section-heading" style="margin-top:2cm;margin-bottom:1cm">Fantastic!</h2>
+						<h2 class="section-heading" style="margin-top:2cm;margin-bottom:1cm">Thank You!</h2>
 						<h3 class="section-subheading text-muted" style="margin-bottom:2cm">What services did you like?</h3>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
 						<div class="team-member">
-						<h4><input type="checkbox"   id="RecoYesRoomConditionCheck" name="RecoYesRoomConditionCheck" value="0" align=center />&nbsp;</h4>
-                    <RadioLabel> <input name="test" type="radio"> Good </RadioLabel>
-							<label for="RecoYesRoomConditionCheck" ><img src="resources/img/bed.png" class="img-responsive img-circle"  style="height:160px;width:160px" alt=""></label>
-							<h4 >Room Condition\Facilities</h4>
+						
+						<input id="r1" type="radio" name="RoomConditionRadio" class="radio4" />
+<label for="r1" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r2" type="radio" name="RoomConditionRadio" class="radio4" />
+<label for="r2" style="font-weight:normal;">Bad</label>	
+	<h4>
+                    
+							<label style="margin-top:0.5cm"><img src="resources/img/bed.png" class="img-responsive img-circle"  style="height:160px;width:160px" alt=""></label>
+							</h4><h4 >Room Condition\Facilities</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -240,11 +245,13 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-						<h4><input type="checkbox"   id="RecoYesBreakFastCheck" name="RecoYesBreakFastCheck" value="0" align=center />&nbsp;</h4>
-                    
-							
-					<label for="RecoYesBreakFastCheck" >	<img src="resources/img/breakfast.png" class="img-responsive" style="height:160px;width:160px"  alt=""></label>
-							
+						<input id="r3" type="radio" name="BreakFastRadio" class="radio4" />
+<label for="r3" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r4" type="radio" name="BreakFastRadio" class="radio4" />
+<label for="r4" style="font-weight:normal;">Bad</label>	
+						<h4>							
+					<label style="margin-top:0.5cm">	<img src="resources/img/breakfast.png" class="img-responsive" style="height:160px;width:160px"  alt=""></label>
+							</h4>
 							<h4>BreakFast</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -255,10 +262,13 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-						<h4><input type="checkbox"   id="RecoYesACcheck" name="RecoYesACcheck" value="0" align=center />&nbsp;</h4>
-                    
-						
-						<label for="RecoYesACcheck" >	<img src="resources/img/AirConditioning.png" class="img-responsive" style="height:160px;width:160px" alt=""></label>
+					<input id="r5" type="radio" name="ACRadio" class="radio4" />
+<label for="r5" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r6" type="radio" name="ACRadio" class="radio4" />
+<label for="r6" style="font-weight:normal;">Bad</label>	
+						<h4>					
+						<label style="margin-top:0.5cm">	<img src="resources/img/AirConditioning.png" class="img-responsive" style="height:160px;width:160px" alt=""></label>
+							</h4>	
 							<h4>AC</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -268,14 +278,18 @@ $(document).ready(function(){
 						</div>
 					</div>
 				</div>
-				<div class="row">
+				<div class="row" style="margin-top:1cm;	">
 					<div class="col-sm-4">
 						<div class="team-member">
-						<h4><input type="checkbox"   id="RecoYesParkingCheck" name="RecoYesParkingCheck" value="0" align=center />&nbsp;</h4>
-                    
-							<label for="RecoYesParkingCheck" ><img src="resources/img/FreeParking.png" class="img-responsive" style="height:160px;width:160px"
+						<input id="r7" type="radio" name="ParkingRadio" class="radio4" />
+<label for="r7" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r8" type="radio" name="ParkingRadio" class="radio4" />
+<label for="r8" style="font-weight:normal;">Bad</label>	
+<h4>
+							<label  ><img src="resources/img/FreeParking.png" class="img-responsive" style="height:160px;width:160px"
 								alt=""></label>
-							<h4>Secure Parking</h4>
+								</h4>
+							<h4>Parking</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -285,10 +299,14 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member" >
-						<h4><input type="checkbox"   id="RecoYesWifiCheck" name="RecoYesWifiCheck" value="0" align=center />&nbsp;</h4>
-                    
-							<label for="RecoYesWifiCheck" ><img src="resources/img/WiFi.png" class="img-responsive" style="height:160px;width:160px" alt="">
-							</label><h4>WiFi</h4>
+						<input id="r9" type="radio" name="WIFIRadio" class="radio4" />
+<label for="r9" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r10" type="radio" name="WIFIRadio" class="radio4" />
+<label for="r10" style="font-weight:normal;">Bad</label>
+							
+							<h4><label  ><img src="resources/img/WiFi.png" class="img-responsive" style="height:160px;width:160px" alt="">
+							</label>
+							</h4><h4>WiFi</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
 								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -298,10 +316,14 @@ $(document).ready(function(){
 					</div>
 					<div class="col-sm-4">
 						<div class="team-member">
-						<h4><input type="checkbox"   id="RecoYesLocationCheck" name="RecoYesLocationCheck" value="0" align=center />&nbsp;</h4>
-                    
-						<label for="RecoYesLocationCheck" >	<img src="resources/img/locationround.png" class="img-responsive" style="height:160px;width:160px"
+						<input id="r11" type="radio" name="LocationRadio" class="radio4" />
+<label for="r11" style=" font-weight:normal;">Good &nbsp;</label>
+<input id="r12" type="radio" name="LocationRadio" class="radio4" />
+<label for="r12" style="font-weight:normal;">Bad</label>
+
+<h4><label >	<img src="resources/img/locationround.png" class="img-responsive" style="height:160px;width:160px"
 								alt=""></label>
+								</h4>
 							<h4>Location</h4>
 							<ul class="list-inline social-buttons">
 								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -319,13 +341,13 @@ $(document).ready(function(){
 			</div>
 		</section>
 		
-		<section id="team-No-Recommendation" class="bg-light-gray" id="RecommendNoOptions" >
+		<section id="team-No-Recommendation" class="bg-light-gray" id="RecommendNoOptions"  style="display: none;">
 			<div class="container" align=center>
 				<div class="row">
 					<div class="col-lg-12 text-center">
 						<h2 class="section-heading" style="margin-top:2cm;">Sorry to hear that.. </h2>
 						<h3 class="section-subheading text-muted" style="margin-top:1cm;margin-bottom:2cm">Please let us know the services that bothered you and can be improved. Your feedback is extremely valuable to us.</h3>
-					</div>
+					</div>	
 				</div>
 				<div class="row">
 					<div class="col-sm-4">
